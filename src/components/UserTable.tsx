@@ -4,12 +4,13 @@ import { useUserStore } from "@/store/userStrore";
 import { Button, Table, Space } from 'antd';
 import { User } from "@/types/user";
 import { PlusOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons'
+import { ColumnsType } from "antd/es/table";
 
 export default function UserTable() {
   const router = useRouter();
   const { users, deleteUser} = useUserStore();
 
-  const columns = [
+  const columns: ColumnsType<User> = [
     { title: 'Имя', dataIndex: 'name', key: 'name' },
     { title: 'Email', dataIndex: 'email', key: 'email' },
     { title: 'Телефон', dataIndex: 'phone', key: 'phone' },
@@ -17,7 +18,7 @@ export default function UserTable() {
     {
       title: 'Действия',
       key: 'actions',
-      render: (_: any, user: User) => (
+      render: (_text, user) => (
         <Space>
           <Button onClick={() => router.push(`/users/${user.id}/edit`)} icon={<EditOutlined />}></Button>
           <Button danger onClick={() => deleteUser(user.id)} icon={<DeleteOutlined />}></Button>

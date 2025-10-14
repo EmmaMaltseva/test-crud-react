@@ -1,5 +1,4 @@
 export type UserRole = 'Admin' | 'User' | 'Manager';
-
 export interface User {
   id: string;
   name: string;
@@ -7,3 +6,10 @@ export interface User {
   phone: string;
   role: UserRole;
 }
+
+export type UserFormValues = {
+  name: string;
+  email: string;
+  phone: string;
+  role: UserRole;
+};

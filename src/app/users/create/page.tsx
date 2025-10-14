@@ -6,6 +6,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from 'yup';
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { UserFormValues } from "@/types/user";
 
 const schema = yup.object({
   name: yup.string().required('Введите имя').min(2, 'Минимум 2 символа'),
@@ -28,7 +29,7 @@ export default function CreateUserPage() {
     mode: 'onTouched',
   })
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: UserFormValues) => {
     addUser(data);
     reset();
     router.push('/users');

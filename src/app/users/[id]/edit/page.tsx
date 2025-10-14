@@ -7,6 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from 'yup';
 import { useEffect } from "react";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { UserFormValues } from "@/types/user";
 
 const schema = yup.object({
   name: yup.string().required('Введите имя').min(2, 'Минимум 2 символа'),
@@ -39,7 +40,7 @@ export default function EditUserPage() {
     }
   }, [userId, getUserById, reset, router]);
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: UserFormValues) => {
     updateUser(userId, data);
     message.success('Пользователь успешно обновлен');
     router.push('/users');
