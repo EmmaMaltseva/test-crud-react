@@ -6,6 +6,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from 'yup';
 import { useEffect } from "react";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const schema = yup.object({
   name: yup.string().required('Введите имя').min(2, 'Минимум 2 символа'),
@@ -46,7 +47,16 @@ export default function EditUserPage() {
   
   return (
     <div className="w-full max-w-3xl mx-auto">
-      <h1 className="text-xl text-gray-800 md:text-2xl md:leading-normal">Редактирование пользователя</h1>
+      <Breadcrumbs
+        breadcrumbs={[
+          { label: 'Пользователи', href: '/users' },
+          {
+            label: 'Редактирование пользователя',
+            href: `/users/${userId}/edit`,
+            active: true,
+          },
+        ]}
+      />
       <Form layout="vertical" onFinish={handleSubmit(onSubmit)}>
         <Form.Item label="Имя" validateStatus={errors.name ? 'error': ''} help={errors.name?.message}>
           <Controller
