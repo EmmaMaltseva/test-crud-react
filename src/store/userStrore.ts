@@ -52,11 +52,12 @@ interface UserStore {
   addUser: (user: Omit<User, 'id'>) => void;
   updateUser: (id: string, data: Partial<User>) => void;
   deleteUser: (id: string) => void;
+  getUserById: (id: string) => User | undefined;
 }
 
 export const useUserStore = create<UserStore>() (
   persist(
-    (set) => ({
+    (set, get) => ({
       users: defaultUsers, //Инициализация начальными данными
       addUser: (user) =>
         set((state) => ({
@@ -71,7 +72,11 @@ export const useUserStore = create<UserStore>() (
       deleteUser: (id) =>
         set((state) => ({
           users: state.users.filter((u) => u.id !== id)
-        }))
+        })),
+      getUserById: (id) => {
+        const { users } = get();
+        return users.find((u) => u.id === id);
+      },
     }),
     { name: 'user-storage' }
   )
