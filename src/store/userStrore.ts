@@ -4,153 +4,153 @@ import { User } from '@/types/user';
 
 const defaultUsers: User[] = [
   {
-    id: '1a2b3c4d-0001-4f5e-9a1b-123456789001',
+    id: 1,
     name: 'Алексей Смирнов',
     email: 'alexey.smirnov@example.com',
     phone: '+7 (901) 123-45-01',
     role: 'Admin'
   },
   {
-    id: '1a2b3c4d-0002-4f5e-9a1b-123456789002',
+    id: 2,
     name: 'Мария Иванова',
     email: 'maria.ivanova@example.com',
     phone: '+7 (902) 234-56-02',
     role: 'User'
   },
   {
-    id: '1a2b3c4d-0003-4f5e-9a1b-123456789003',
+    id: 3,
     name: 'Дмитрий Кузнецов',
     email: 'dmitry.kuznetsov@example.com',
     phone: '+7 (903) 345-67-03',
     role: 'Manager'
   },
   {
-    id: '1a2b3c4d-0004-4f5e-9a1b-123456789004',
+    id: 4,
     name: 'Екатерина Попова',
     email: 'ekaterina.popova@example.com',
     phone: '+7 (904) 456-78-04',
     role: 'User'
   },
   {
-    id: '1a2b3c4d-0005-4f5e-9a1b-123456789005',
+    id: 5,
     name: 'Сергей Лебедев',
     email: 'sergey.lebedev@example.com',
     phone: '+7 (905) 567-89-05',
     role: 'User'
   },
   {
-    id: '1a2b3c4d-0006-4f5e-9a1b-123456789006',
+    id: 6,
     name: 'Ольга Козлова',
     email: 'olga.kozlova@example.com',
     phone: '+7 (906) 678-90-06',
     role: 'Manager'
   },
   {
-    id: '1a2b3c4d-0007-4f5e-9a1b-123456789007',
+    id: 7,
     name: 'Иван Новиков',
     email: 'ivan.novikov@example.com',
     phone: '+7 (907) 789-01-07',
     role: 'User'
   },
   {
-    id: '1a2b3c4d-0008-4f5e-9a1b-123456789008',
+    id: 8,
     name: 'Анна Морозова',
     email: 'anna.morozova@example.com',
     phone: '+7 (908) 890-12-08',
     role: 'Admin'
   },
   {
-    id: '1a2b3c4d-0009-4f5e-9a1b-123456789009',
+    id: 9,
     name: 'Павел Воробьев',
     email: 'pavel.vorobev@example.com',
     phone: '+7 (909) 901-23-09',
     role: 'User'
   },
   {
-    id: '1a2b3c4d-0010-4f5e-9a1b-123456789010',
+    id: 10,
     name: 'Татьяна Федорова',
     email: 'tatiana.fedorova@example.com',
     phone: '+7 (910) 012-34-10',
     role: 'Manager'
   },
   {
-    id: '1a2b3c4d-0011-4f5e-9a1b-123456789011',
+    id: 11,
     name: 'Андрей Егоров',
     email: 'andrey.egorov@example.com',
     phone: '+7 (911) 123-45-11',
     role: 'User'
   },
   {
-    id: '1a2b3c4d-0012-4f5e-9a1b-123456789012',
+    id: 12,
     name: 'Елена Соколова',
     email: 'elena.sokolova@example.com',
     phone: '+7 (912) 234-56-12',
     role: 'User'
   },
   {
-    id: '1a2b3c4d-0013-4f5e-9a1b-123456789013',
+    id: 13,
     name: 'Владимир Павлов',
     email: 'vladimir.pavlov@example.com',
     phone: '+7 (913) 345-67-13',
     role: 'Admin'
   },
   {
-    id: '1a2b3c4d-0014-4f5e-9a1b-123456789014',
+    id: 14,
     name: 'Наталья Васильева',
     email: 'natalia.vasileva@example.com',
     phone: '+7 (914) 456-78-14',
     role: 'User'
   },
   {
-    id: '1a2b3c4d-0015-4f5e-9a1b-123456789015',
+    id: 15,
     name: 'Константин Голубев',
     email: 'konstantin.golubev@example.com',
     phone: '+7 (915) 567-89-15',
     role: 'User'
   },
   {
-    id: '1a2b3c4d-0016-4f5e-9a1b-123456789016',
+    id: 16,
     name: 'Марина Куликова',
     email: 'marina.kulikova@example.com',
     phone: '+7 (916) 678-90-16',
     role: 'Manager'
   },
   {
-    id: '1a2b3c4d-0017-4f5e-9a1b-123456789017',
+    id: 17,
     name: 'Денис Никитин',
     email: 'denis.nikitin@example.com',
     phone: '+7 (917) 789-01-17',
     role: 'User'
   },
   {
-    id: '1a2b3c4d-0018-4f5e-9a1b-123456789018',
+    id: 18,
     name: 'Светлана Белова',
     email: 'svetlana.belova@example.com',
     phone: '+7 (918) 890-12-18',
     role: 'User'
   },
   {
-    id: '1a2b3c4d-0019-4f5e-9a1b-123456789019',
+    id: 19,
     name: 'Артём Киселев',
     email: 'artem.kiselev@example.com',
     phone: '+7 (919) 901-23-19',
     role: 'User'
   },
   {
-    id: '1a2b3c4d-0020-4f5e-9a1b-123456789020',
+    id: 20,
     name: 'Юлия Григорьева',
     email: 'yulia.grigorieva@example.com',
     phone: '+7 (920) 012-34-20',
     role: 'Manager'
   }
-]
+];
 
 interface UserStore {
   users: User[];
   addUser: (user: Omit<User, 'id'>) => void;
-  updateUser: (id: string, data: Partial<User>) => void;
-  deleteUser: (id: string) => void;
-  getUserById: (id: string) => User | undefined;
+  updateUser: (id: number, data: Partial<User>) => void;
+  deleteUser: (id: number) => void;
+  getUserById: (id: number) => User | undefined;
 }
 
 export const useUserStore = create<UserStore>() (
@@ -158,9 +158,15 @@ export const useUserStore = create<UserStore>() (
     (set, get) => ({
       users: defaultUsers, //Инициализация начальными данными
       addUser: (user) =>
-        set((state) => ({
-            users: [...state.users, {...user, id: crypto.randomUUID() }]
-        })),
+        set((state) => {
+          const nextId = state.users.length > 0 
+            ? Math.max(...state.users.map(u => u.id)) + 1 
+            : 1;
+          
+          return {
+            users: [...state.users, { ...user, id: nextId }]
+          };
+        }),
       updateUser: (id, data) =>
         set((state) => ({
           users: state.users.map((u) =>

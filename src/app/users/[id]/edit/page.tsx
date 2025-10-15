@@ -11,7 +11,7 @@ export default function EditUserPage() {
   const params = useParams();
   const { getUserById, updateUser } = useUserStore();
   const userId = params?.id as string;
-  const user = getUserById(userId);
+  const user = getUserById(Number(userId));
   if (!user) {
     message.error('Пользователь не найден');
     router.push('/users');
@@ -33,7 +33,7 @@ export default function EditUserPage() {
       <UserForm 
         initialValues={user}
         onSubmit={(data) => {
-          updateUser(userId, data);
+          updateUser(Number(userId), data);
           message.success('Пользователь успешно обновлён');
           router.push('/users');
         }}
