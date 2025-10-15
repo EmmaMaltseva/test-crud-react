@@ -1,7 +1,7 @@
 'use client'
 import { useRouter } from "next/navigation";
 import { useUserStore } from "@/store/userStrore";
-import { Button, Table, Space, List, Card, PaginationProps } from 'antd';
+import { Button, Table, Space, List, Card, PaginationProps, Modal, Descriptions } from 'antd';
 import { User } from "@/types/user";
 import { PlusOutlined, EditOutlined, DeleteOutlined, MailOutlined, PhoneOutlined } from '@ant-design/icons'
 import { ColumnsType } from "antd/es/table";
@@ -13,9 +13,22 @@ export default function UserTable() {
   const { users, deleteUser} = useUserStore();
 
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedUser, setSelectedUser] = useState<User | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const pageSize = 10;
   const handlePageChange: PaginationProps['onChange'] = (page) => {
     setCurrentPage(page);
+  };
+
+  const showModal = (user: User) => {
+    setSelectedUser(user);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedUser(null);
   };
 
   const columns: ColumnsType<User> = [
@@ -30,9 +43,9 @@ export default function UserTable() {
       render: (_text, user) => (
         <Space>
           <Link href={`/users/${user.id}/edit`} prefetch>
-            <Button icon={<EditOutlined />}></Button>
+            <Button icon={<EditOutlined />} onClick={(e) => e.stopPropagation()}></Button>
           </Link>
-          <Button danger onClick={() => deleteUser(user.id)} icon={<DeleteOutlined />}></Button>
+          <Button danger onClick={(e) => { e.stopPropagation(); deleteUser(user.id); }} icon={<DeleteOutlined />}></Button>
         </Space>
       ),
       width: 1,
@@ -66,9 +79,10 @@ export default function UserTable() {
               title={user.name}
               extra={<span className="text-gray-500 text-sm">{user.role}</span>}
               className="!mb-3"
+              onClick={() => showModal(user)}
               actions={[
-                <Button key={`edit-${user.id}`} onClick={() => router.push(`/users/${user.id}/edit`)} icon={<EditOutlined />}></Button>,
-                <Button key={`delete-${user.id}`} danger onClick={() => deleteUser(user.id)} icon={<DeleteOutlined />}></Button>,
+                <Button key={`edit-${user.id}`} onClick={(e) => { e.stopPropagation(); router.push(`/users/${user.id}/edit`); }} icon={<EditOutlined />}></Button>,
+                <Button key={`delete-${user.id}`} danger onClick={(e) => { e.stopPropagation(); deleteUser(user.id); }} icon={<DeleteOutlined />}></Button>,
               ]}
             >
               <p><MailOutlined className="!mr-2"/>{user.email}</p>
@@ -86,8 +100,34 @@ export default function UserTable() {
           dataSource={users}
           pagination={{ pageSize: 10 }}
           bordered
+          onRow={(user) => ({
+            onClick: () => showModal(user),
+          })}
         />
       </div>
+
+      <Modal
+        title={selectedUser?.name}
+        open={isModalOpen}
+        onCancel={closeModal}
+        footer={[
+          <Button key="close" onClick={closeModal}>
+            Закрыть
+          </Button>,
+          <Button key="edit" type="primary" onClick={() => router.push(`/users/${selectedUser?.id}/edit`)}>
+            Редактировать
+          </Button>,
+        ]}
+      >
+        {selectedUser && (
+          <Descriptions column={1} bordered>
+            <Descriptions.Item label="Email">{selectedUser.email}</Descriptions.Item>
+            <Descriptions.Item label="Телефон">{selectedUser.phone}</Descriptions.Item>
+            <Descriptions.Item label="Роль">{selectedUser.role}</Descriptions.Item>
+            <Descriptions.Item label="ID">{selectedUser.id}</Descriptions.Item>
+          </Descriptions>
+        )}
+      </Modal>
     </div>
   );
 }
