@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Тестовое задание: CRUD приложение на React
 
-## Getting Started
+Стек: react, next, zustand, antd, react-hook-form, tailwindcss, react-imask
 
-First, run the development server:
+Инструкция по запуску проекта:
 
 ```bash
-npm run dev
+git clone <ссылка на проект> - клонирование репозитория
+
+npm install - установка зависимостей
 # or
-yarn dev
+npm run dev - запуск проекта в режиме разработки
 # or
-pnpm dev
-# or
-bun dev
+открыть в браущере ссылку http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ссылка на сайт Vercel: https://test-crud-react-amber.vercel.app/
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Пояснительная записка
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Таблица пользователей
 
-## Learn More
+- Комопнент таблицы - src/components/UserTable.tsx. В версии пк компонент отображается в виде таблицы.
+  В таблице выводятся все требуемые колонки: ID, Имя, Email, Телефон, Роль и Действия.
+  В мобильной версии комопнент отображается в виде списка карточек. Компонент расположен на странице /users.
 
-To learn more about Next.js, take a look at the following resources:
+- Модальное окно с подробной информацией о пользователе. При клике на строку в таблице или на картчоку открывается окно.
+  Окно содержит кнопки "Закрыть" и "Редактировать".
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Создание, редактирование и удаление пользователей
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Создание. Комопнент формы - src/components/userForm/UserForm.tsx. При вводе данных все поля проверяются на валидность
+  согласно требованиям. Форма отправляется только в случае корректных значений. Чтобы отменить создание, есть кнопка "Отменить".
+  При вводе номера телефона добавлена маска. При нажатии кнопки "Создать" добавляется новый пользователь в хранилище с автоматически
+  сгенерированным id. id для красивой визуализации представлен в виде числа. Для более безопасного хранения данных можно использовать UUID.
+
+- Редактирование. Комопнент формы - src/components/userForm/UserForm.tsx. Для редактирования и создания используется одна форма,
+  так как логика, валидация и верстка практически одинакова. При корректно заполненных значениях и нажатии кнопки "Сохранить" данные
+  о пользователе обновляются в хранилище.
+
+- Удаление. В комопненте src/components/UserTable.tsx как в таблице, так и на карточке есть кнопка "Удалить". При нажатии пользователь
+  удаляется из хранилища.
+
+3. Пагинация добавлена в таблицу в версии пк и в список в мобильной версии. 10 записей на одной странице.
+
+4. Дополнительные комментарии
+
+- Альтернативное хранилище реализовано с помощью Zustand - src/store/userStrore.ts. Хранилище интегрировано с localStorage.
+  Хранилище содержит состояние - users. При загрузке проекта состояние инициализируется начальными моковыми значениями -
+  defaultUsers (20 пользователей). Создание, редактирование и удаление реализовано с помощью действий addUser,
+  updateUser и deleteUser. При изменении состояния данные меняются в localStorage.
 
 ## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
