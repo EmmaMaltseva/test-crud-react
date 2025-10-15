@@ -4,6 +4,17 @@ import 'antd/dist/reset.css';
 import "./globals.css";
 import { AntdProvider } from "@/providers/AntdProvider";
 
+// Отключение предупреждения, тк бибилотека совместимостей React 19 и antd установлена
+if (process.env.NODE_ENV === 'development') {
+  const originalError = console.error;
+  console.error = (...args) => {
+    if (typeof args[0] === 'string' && args[0].includes('antd: compatible')) {
+      return;
+    }
+    originalError.call(console, ...args);
+  };
+}
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
