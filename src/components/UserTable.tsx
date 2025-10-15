@@ -29,7 +29,7 @@ export default function UserTable() {
       key: 'actions',
       render: (_text, user) => (
         <Space>
-          <Link href={`/users/${user.id}/edit`} prefetch passHref>
+          <Link href={`/users/${user.id}/edit`} prefetch>
             <Button icon={<EditOutlined />}></Button>
           </Link>
           <Button danger onClick={() => deleteUser(user.id)} icon={<DeleteOutlined />}></Button>
@@ -42,7 +42,7 @@ export default function UserTable() {
   return (
     <div className="mt-4 flex flex-col">
       <div className="flex flex-col md:flex-row md:justify-end">
-        <Link href="/users/create" prefetch passHref>
+        <Link href="/users/create" prefetch>
           <Button type="primary" icon={<PlusOutlined />} className="!mb-4">
             Добавить пользователя
           </Button>

@@ -3,7 +3,6 @@ import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from 'yup';
 import { User } from "@/types/user";
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 const schema = yup.object({
@@ -22,7 +21,6 @@ interface UserFormProps {
 }
 
 export function UserForm({ initialValues, onSubmit }: UserFormProps) {
-  const router = useRouter();
   const isEditMode = Boolean(initialValues?.id)
 
   const { control, handleSubmit, formState: { errors }} = useForm({
