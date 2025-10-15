@@ -4,6 +4,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from 'yup';
 import { User } from "@/types/user";
 import Link from 'next/link';
+import { IMaskInput } from 'react-imask';
+import styles from './userForm.module.css';
 
 const schema = yup.object({
   name: yup.string().required('Введите имя').min(2, 'Минимум 2 символа'),
@@ -54,7 +56,16 @@ export function UserForm({ initialValues, onSubmit }: UserFormProps) {
         <Controller
           name="phone"
           control={control}
-          render={({ field }) => <Input {...field} placeholder="+7 (999) 000-00-00" />}
+          render={({ field }) => (
+            <IMaskInput
+              {...field}
+              mask="+{7} (000) 000-00-00"
+              definitions={{ 0: /\d/ }}
+              onAccept={(value: string) => field.onChange(value)}
+              placeholder="+7 (9__) ___-__-__"
+              className={`${styles.customAntInput} ${errors.phone ? styles.customAntInputError : ''}`}
+            />
+          )}
         />
       </Form.Item>
 

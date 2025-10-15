@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import { message } from 'antd';
 import { useUserStore } from "@/store/userStrore";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { UserForm } from "@/components/UserForm";
+import { UserForm } from "@/components/userForm/UserForm";
 
 export default function CreateUserPage() {
   const router = useRouter();
