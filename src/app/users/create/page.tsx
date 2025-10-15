@@ -10,12 +10,12 @@ export default function CreateUserPage() {
   const { addUser } = useUserStore();
   
   return (
-    <div className="w-full max-w-3xl mx-auto">
+    <div className="w-full max-w-3xl">
       <Breadcrumbs
         breadcrumbs={[
           { label: 'Пользователи', href: '/users' },
           {
-            label: 'Создание пользователя',
+            label: 'Создание',
             href: `/users/create`,
             active: true,
           },

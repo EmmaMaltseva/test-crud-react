@@ -18,12 +18,12 @@ export default function EditUserPage() {
   }
   
   return (
-    <div className="w-full max-w-3xl mx-auto">
+    <div className="w-full max-w-3xl">
       <Breadcrumbs
         breadcrumbs={[
           { label: 'Пользователи', href: '/users' },
           {
-            label: 'Редактирование пользователя',
+            label: 'Редактирование',
             href: `/users/${userId}/edit`,
             active: true,
           },
