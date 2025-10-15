@@ -13,6 +13,7 @@ export default function CreateUserPage() {
     <div className="w-full max-w-3xl">
       <Breadcrumbs
         breadcrumbs={[
+          { label: 'Главная', href: '/' },
           { label: 'Пользователи', href: '/users' },
           {
             label: 'Создание',

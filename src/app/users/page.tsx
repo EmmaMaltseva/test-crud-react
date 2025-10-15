@@ -6,6 +6,7 @@ export default async function Page() {
     <div className="w-full"> 
       <Breadcrumbs
         breadcrumbs={[
+          { label: 'Главная', href: '/' },
           { label: 'Пользователи', href: '/users', active: true },
         ]}
       />
