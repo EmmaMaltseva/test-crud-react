@@ -13,7 +13,7 @@ const schema = yup.object({
   phone: yup
     .string()
     .required('Введите телефон')
-    .matches(/^\+7\s?\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{2}[\s-]?\d{2}$/, 'Введите корректный формат: +7 (9XX) XXX-XX-XX'),
+    .matches(/^\+7\s?\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{2}[\s-]?\d{2}$/, 'Введите корректный формат: +7 (XXX) XXX-XX-XX'),
   role: yup.string().oneOf(['Admin', 'User', 'Manager']).required('Выберите роль'),
 });
 
@@ -62,7 +62,7 @@ export function UserForm({ initialValues, onSubmit }: UserFormProps) {
               mask="+{7} (000) 000-00-00"
               definitions={{ 0: /\d/ }}
               onAccept={(value: string) => field.onChange(value)}
-              placeholder="+7 (9__) ___-__-__"
+              placeholder="+7 (___) ___-__-__"
               className={`${styles.customAntInput} ${errors.phone ? styles.customAntInputError : ''}`}
             />
           )}
