@@ -2,7 +2,7 @@
 
 <img width="1443" height="696" alt="image" src="https://github.com/user-attachments/assets/3e315316-5157-40c5-9be9-315b4e468b57" />
 
-Ссылка на сайт Vercel: https://test-crud-react-amber.vercel.app/
+Ссылка на сайт: https://test-crud-react-amber.vercel.app/
 
 Стек: react, next, zustand, antd, react-hook-form, tailwindcss, react-imask
 
