@@ -1,6 +1,7 @@
 # Тестовое задание: CRUD приложение на React
 
-<img width="1443" height="696" alt="image" src="https://github.com/user-attachments/assets/3e315316-5157-40c5-9be9-315b4e468b57" />
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/97271a26-593d-4080-a4c3-1bb3d7a17770" style="margin-right: 50px;"/>
+<img src="https://github.com/user-attachments/assets/37471438-5c50-4263-8678-20c2d6a2d253" width="200">
 
 Ссылка на сайт Vercel: https://test-crud-react-amber.vercel.app/
 
