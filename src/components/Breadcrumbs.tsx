@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { HomeOutlined } from '@ant-design/icons';
 
 interface Breadcrumb {
   label: string;
@@ -20,9 +21,20 @@ export default function Breadcrumbs({
             aria-current={breadcrumb.active}
             className={breadcrumb.active ? 'text-gray-900 dark:text-white' : 'text-zinc-400 hover:text-gray-900 active:text-gray-900'}
           >
-            <Link href={breadcrumb.href} prefetch>{breadcrumb.label}</Link>
+            <Link href={breadcrumb.href} prefetch>
+              {index === 0 ? (
+                <>
+                  <span className="sm:hidden">
+                    <HomeOutlined />
+                  </span>
+                  <span className="hidden sm:inline">{breadcrumb.label}</span>
+                </>
+              ) : (
+                breadcrumb.label
+              )}
+            </Link>
             {index < breadcrumbs.length - 1 ? (
-              <span className="mx-1 sm:mx-3 inline-block ">/</span>
+              <span className="mx-1 sm:mx-3 inline-block">/</span>
             ) : null}
           </li>
         ))}
