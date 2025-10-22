@@ -1,4 +1,4 @@
-# Тестовое задание: CRUD приложение на React
+# CRUD приложение на React
 
 Ссылка на сайт: https://test-crud-react-amber.vercel.app/
 
